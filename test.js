@@ -27,7 +27,6 @@ test('Non-exact BCH addresses', t => {
 	for (const x of fixtures) {
 		t.is((m().exec(`foo ${x} bar`) || [])[0], x);
 	}
-	
 	t.is(m().exec('bitcoincash:19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')[0], '19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k');
 });
 
