@@ -42,6 +42,12 @@ Default: `false` *(Matches any BCH address in a string)*
 
 Only match an exact string. Useful with `RegExp#test()` to check if a string is an BCH address.
 
+## Related
+
+- [ethereum-regex](https://github.com/k4m4/ethereum-regex) - Regular expression for matching Ethereum (ETH) addresses.
+- [litecoin-regex](https://github.com/k4m4/litecoin-regex) - Regular expression for matching Litecoin (LTC) addresses.
+- [dash-regex](https://github.com/k4m4/dash-regex) - Regular expression for matching Dash addresses.
+- [dogecoin-regex](https://github.com/k4m4/dogecoin-regex) - Regular expression for matching Dogecoin (DOGE) addresses.
 
 ## License
 
