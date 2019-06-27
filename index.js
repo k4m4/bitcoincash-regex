@@ -2,7 +2,7 @@
 
 const bchRegExps = {
 	'legacy'  : '[13][a-km-zA-HJ-NP-Z1-9]{33}',
-	'cashaddr': '(((bitcoincash|bchreg|bchtest):)?(q|p)[a-z0-9]{41})'
+	'cashaddr': '((bitcoincash|bchreg|bchtest):)?(q|p)[a-z0-9]{41}'
 }
 
 const buildRegExp = (body, opts) => {
