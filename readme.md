@@ -1,6 +1,6 @@
 # bitcoincash-regex [![Build Status](https://travis-ci.org/k4m4/bitcoincash-regex.svg?branch=master)](https://travis-ci.org/k4m4/bitcoincash-regex)
 
-> Regular expression for matching Bitcoin Cash (BCH) addresses.
+> Regular expression for matching Bitcoin Cash (BCH) Legacy and CashAddr addresses.
 
 
 ## Install
@@ -13,27 +13,52 @@
 ## Usage
 
 ```js
-const bitcoincashRegex = require('bitcoincash-regex');
+const bch = require('bitcoincash-regex')
 
-bitcoincashRegex().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k');
+bch().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> true
 
-bitcoincashRegex({exact: true}).test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k foo');
+bch({exact: true}).test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k foo')
 //=> false
 
-bitcoincashRegex({exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k');
+bch({exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> true
 
-'nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k unicorn 1F4MH7XeQypXZTjFgCj8ZSd63NX8ywTEbG rainbow'.match(bitcoincashRegex());
-//=> ['19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k', '1F4MH7XeQypXZTjFgCj8ZSd63NX8ywTEbG']
+bch.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
+//=> true
+
+bch.format('cashaddr', {exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
+//=> false
+
+'nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k unicorn bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a rainbow'.match(bitcoincashRegex());
+//=> ['19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k', 'bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a']
 ```
 
 
 ## API
 
-### bitcoincashRegex([options])
+### bch([options])
 
 Returns a regex for matching BCH addresses.
+
+#### options.exact
+
+Type: `boolean`<br>
+Default: `false` *(Matches any BCH address in a string)*
+
+Only match an exact string. Useful with `RegExp#test()` to check if a string is an BCH address.
+
+
+### bch.format([format], [options])
+
+Returns a regex for matching specific BCH format addresses.
+
+#### format
+
+Type: `string`<br>
+Supported Formats: `legacy`, `cashaddr`
+
+Match a specific BCH address format.
 
 #### options.exact
 
