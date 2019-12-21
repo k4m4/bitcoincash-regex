@@ -27,9 +27,7 @@
     "index.d.ts"
   ],
   "devDependencies": {
-    "ava": "^1.2.1"
-  },
-  "dependencies": {
+    "ava": "^1.2.1",
     "tsd": "^0.11.0"
   }
 }
