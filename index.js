@@ -1,8 +1,8 @@
 'use strict'
 
 const bchRegExps = {
-	'legacy'  : '[13][a-km-zA-HJ-NP-Z1-9]{33}',
-	'cashaddr': '((bitcoincash|bchreg|bchtest):)?(q|p)[a-z0-9]{41}'
+	legacy: '[13][a-km-zA-HJ-NP-Z1-9]{33}',
+	cashaddr: '((bitcoincash|bchreg|bchtest):)?(q|p)[a-z0-9]{41}'
 }
 
 const buildRegExp = (body, opts) => {
@@ -11,13 +11,16 @@ const buildRegExp = (body, opts) => {
 
 const bch = opts => {
 	opts = opts || {}
-	const body = Object.keys(bchRegExps).map(format => '(?:' + bchRegExps[format] + `)`).join(`|`)
+	const body = Object.keys(bchRegExps).map(format => '(?:' + bchRegExps[format] + ')').join('|')
 	return buildRegExp(body, opts)
 }
 
 bch.format = (format, opts) => {
 	opts = opts || {}
-	if (!bchRegExps[format]) throw new Error('Invalid BCH format')
+	if (!bchRegExps[format]) {
+		throw new Error('Invalid BCH format')
+	}
+
 	const body = bchRegExps[format]
 	return buildRegExp(body, opts)
 }

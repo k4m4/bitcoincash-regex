@@ -1,15 +1,15 @@
 import test from 'ava'
-import m from './'
+import m from '.'
 
 const fixtures = {
-	'legacy': [
+	legacy: [
 		'1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu',
 		'1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR',
 		'3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC',
 		'3LDsS579y7sruadqu11beEJoTjdFiFCdX4',
 		'31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw'
 	],
-	'cashaddr': [
+	cashaddr: [
 		'bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a',
 		'bitcoincash:qr95sy3j9xwd2ap32xkykttr4cvcu7as4y0qverfuy',
 		'bitcoincash:ppm2qsznhks23z7629mms6s4cwef74vcwvn0h829pq',
@@ -27,16 +27,18 @@ const fixturesNot = [
 ]
 
 test('bch', t => {
-	Object.keys(fixtures).map(format => {
+	Object.keys(fixtures).map(format =>
 		fixtures[format].map(x => t.true(m({exact: true}).test(x)))
-	})
+	)
 })
 
 test('bch format', t => {
-	Object.keys(fixtures).map(format => {
-		fixtures[format].map(x => t.true(m.format(format, {exact: true}).test(x)))
-		fixtures[format].map(x => t.is((m.format(format).exec(`foo ${x} bar`))[0], x))
-	})
+	Object.keys(fixtures).map(format =>
+		fixtures[format].map(x => {
+			t.true(m.format(format, {exact: true}).test(x))
+			return t.is((m.format(format).exec(`foo ${x} bar`))[0], x)
+		})
+	)
 })
 
 test('non-bch', t => {
