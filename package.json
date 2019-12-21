@@ -14,7 +14,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava && tsd"
   },
   "keywords": [
     "bitcoincash",
@@ -23,9 +23,13 @@
     "regex"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "devDependencies": {
     "ava": "^1.2.1"
+  },
+  "dependencies": {
+    "tsd": "^0.11.0"
   }
 }
