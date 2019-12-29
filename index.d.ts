@@ -1,4 +1,4 @@
-declare namespace bch {
+declare namespace bchRegex {
 	interface Options {
 		/**
 		Only match an exact string. By default, it matches any BCH addresses in a string. Useful with `RegExp#test()` to check if a string is an BCH address.
@@ -12,28 +12,28 @@ declare namespace bch {
 	type Format = 'legacy' | 'cashaddr';
 }
 
-declare const bch: {
+declare const bchRegex: {
 	/**
 	Returns a regex for matching BCH addresses.
 	@example
 	```
-	import bch = require('bitcoincash-regex')
-	bch().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
+	import bchRegex = require('bitcoincash-regex')
+	bchRegex().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 	//=> true
 	```
 	*/
-	(options?: bch.Options): RegExp;
+	(options?: bchRegex.Options): RegExp;
 
 	/**
 	Returns a regex for matching specific BCH format addresses.
 	@example
 	```
-	import bch = require('bitcoincash-regex')
-	bch.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
+	import bchRegex = require('bitcoincash-regex')
+	bchRegex.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
 	//=> true
 	```
 	*/
-	format(format: bch.Format, options?: bch.Options): RegExp;
+	format(format: bchRegex.Format, options?: bchRegex.Options): RegExp;
 }
 
-export = bch;
+export = bchRegex;
