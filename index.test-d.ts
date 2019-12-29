@@ -1,7 +1,7 @@
 import {expectType} from 'tsd';
-import bch = require('.');
+import bchRegex = require('.');
 
-expectType<RegExp>(bch());
-expectType<RegExp>(bch({exact: true}));
-expectType<RegExp>(bch.format('legacy'));
-expectType<RegExp>(bch.format('cashaddr', {exact: false}));
+expectType<RegExp>(bchRegex());
+expectType<RegExp>(bchRegex({exact: true}));
+expectType<RegExp>(bchRegex.format('legacy'));
+expectType<RegExp>(bchRegex.format('cashaddr', {exact: false}));

@@ -13,21 +13,21 @@
 ## Usage
 
 ```js
-const bch = require('bitcoincash-regex')
+const bchRegex = require('bitcoincash-regex')
 
-bch().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
+bchRegex().test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> true
 
-bch({exact: true}).test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k foo')
+bchRegex({exact: true}).test('nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k foo')
 //=> false
 
-bch({exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
+bchRegex({exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> true
 
-bch.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
+bchRegex.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
 //=> true
 
-bch.format('cashaddr', {exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
+bchRegex.format('cashaddr', {exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> false
 
 'nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k unicorn bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a rainbow'.match(bitcoincashRegex());
@@ -37,7 +37,7 @@ bch.format('cashaddr', {exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 
 ## API
 
-### bch([options])
+### bchRegex([options])
 
 Returns a regex for matching BCH addresses.
 
@@ -49,7 +49,7 @@ Default: `false` *(Matches any BCH address in a string)*
 Only match an exact string. Useful with `RegExp#test()` to check if a string is an BCH address.
 
 
-### bch.format([format], [options])
+### bchRegex.format([format], [options])
 
 Returns a regex for matching specific BCH format addresses.
 

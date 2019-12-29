@@ -9,13 +9,13 @@ const buildRegExp = (body, opts) => {
 	return opts.exact ? new RegExp('(?:^' + body + '$)') : new RegExp(body, 'g')
 }
 
-const bch = opts => {
+const bchRegex = opts => {
 	opts = opts || {}
 	const body = Object.keys(bchRegExps).map(format => '(?:' + bchRegExps[format] + ')').join('|')
 	return buildRegExp(body, opts)
 }
 
-bch.format = (format, opts) => {
+bchRegex.format = (format, opts) => {
 	opts = opts || {}
 	if (!bchRegExps[format]) {
 		throw new Error('Invalid BCH format')
@@ -25,4 +25,4 @@ bch.format = (format, opts) => {
 	return buildRegExp(body, opts)
 }
 
-module.exports = bch
+module.exports = bchRegex
