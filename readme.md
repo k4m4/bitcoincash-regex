@@ -30,7 +30,7 @@ bchRegex.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629m
 bchRegex.format('cashaddr', {exact: true}).test('19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k')
 //=> false
 
-'nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k unicorn bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a rainbow'.match(bitcoincashRegex());
+'nodejsrocks 19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k unicorn bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a rainbow'.match(bchRegex());
 //=> ['19hZx234vNtLazfx5J2bxHsiWEmeYE8a7k', 'bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a']
 ```
 
