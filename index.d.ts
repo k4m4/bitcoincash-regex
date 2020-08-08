@@ -9,10 +9,21 @@ declare namespace bchRegex {
 	/**
 	Available BCH formats.
 	*/
-	type Format = 'legacy' | 'cashaddr';
+	type Format = 'legacy' | 'cashaddr'
 }
 
 declare const bchRegex: {
+	/**
+	Returns a regex for matching specific BCH format addresses.
+	@example
+	```
+	import bchRegex = require('bitcoincash-regex')
+	bchRegex.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
+	//=> true
+	```
+	*/
+	format: (format: bchRegex.Format, options?: bchRegex.Options) => RegExp;
+
 	/**
 	Returns a regex for matching BCH addresses.
 	@example
@@ -23,17 +34,6 @@ declare const bchRegex: {
 	```
 	*/
 	(options?: bchRegex.Options): RegExp;
-
-	/**
-	Returns a regex for matching specific BCH format addresses.
-	@example
-	```
-	import bchRegex = require('bitcoincash-regex')
-	bchRegex.format('cashaddr', {exact: true}).test('bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a')
-	//=> true
-	```
-	*/
-	format(format: bchRegex.Format, options?: bchRegex.Options): RegExp;
 }
 
-export = bchRegex;
+export = bchRegex
